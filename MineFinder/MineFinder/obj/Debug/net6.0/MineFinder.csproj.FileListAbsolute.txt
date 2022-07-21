@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\bin\Debug\net6.0\MineFinder.exe
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\bin\Debug\net6.0\MineFinder.deps.json
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\bin\Debug\net6.0\MineFinder.runtimeconfig.json
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\bin\Debug\net6.0\MineFinder.dll
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\bin\Debug\net6.0\MineFinder.pdb
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\MineFinder.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\MineFinder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\MineFinder.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\MineFinder.AssemblyInfo.cs
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\MineFinder.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\MineFinder.dll
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\refint\MineFinder.dll
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\MineFinder.pdb
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\MineFinder.genruntimeconfig.cache
+C:\Users\User\Desktop\Mine\MineFinder\MineFinder\MineFinder\obj\Debug\net6.0\ref\MineFinder.dll
