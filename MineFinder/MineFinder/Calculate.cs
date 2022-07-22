@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MineFinder
 {
-    public class Calculate
+    public class Calculate // 숫자계산, 범위계산
     {
         private int upX;
         private int upY;
@@ -41,7 +41,7 @@ namespace MineFinder
             row = Setting.Instance.GetRow();
             col = Setting.Instance.GetCol();
         }
-        private void CalculatePos(int x , int y)
+        private void CalculatePos(int x , int y) // 좌표계산
         {
             upX = x; // x 가 열이동
             upY = y - 1; // y 가 행이동
@@ -67,7 +67,7 @@ namespace MineFinder
             rightX = x + 1;
             rightY = y;
         }
-        public int CalculateNum(int x, int y)
+        public int CalculateNum(int x, int y) // 8칸의 숫자 계산
         {
             CalculatePos(x, y);
             int count = 0;
@@ -93,6 +93,9 @@ namespace MineFinder
             else if(GameLoop.Instance.creator.tile[x, y].isMine) // 지뢰면
             {
                 GameLoop.Instance.creator.tile[x, y].isOpen = true; // 까고 리턴
+                GameLoop.Instance.creator.RenderAll(); // 화면 그려주고
+                Thread.Sleep(1000); // 기다리고
+                GameLoop.Instance.isOver = true; // 겜 오버
                 return;
             }
             else if (CalculateNum(x, y) > 0) // 숫자면
@@ -117,14 +120,6 @@ namespace MineFinder
         public void InitCal()
         {
             mine = GameLoop.Instance.creator.mine;
-        }
-        private bool IsIn(int x, int y)
-        {
-            if (x >= 0 && x < row && y >= 0 && y < col)
-            {
-                return true;
-            }
-            return false;
         }
     }
 }

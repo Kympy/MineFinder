@@ -8,12 +8,12 @@ namespace MineFinder
 {
     public class Creator
     {
-        public Tile[,] tile;
-        public int MineCount = 80;
-        private int currentMineCount;
-        public Mine[] mine;
+        public Tile[,] tile; // 타일
+        public int MineCount = 80; // 지뢰 갯수
+        private int currentMineCount; // 현재 남은 지뢰 갯수
+        public Mine[] mine; // 지뢰
         private Random rand = new Random();
-        public Calculate cal = new Calculate();
+        public Calculate cal = new Calculate(); // 각종 계산
         private int row;
         private int col;
         public Creator()
@@ -23,7 +23,7 @@ namespace MineFinder
             tile = new Tile[row, col];
             mine = new Mine[MineCount];
         }
-        public void InitTile()
+        public void InitTile() // 타일 초기화
         {
             for (int i = 0; i < row; i++)
             {
@@ -36,14 +36,12 @@ namespace MineFinder
                 }
             }
         }
-        public void CreateMine()
+        public void CreateMine() // 지뢰 중복 X 생성
         {
             for(int k = 0; k < MineCount; k++)
             {
                 mine[k] = new Mine();
             }
-            //int i = 0; // 카운트
-            //bool isSolo = true; // 중복없는 수 인지?
             int q;
             for(q = 0; q < MineCount; q++)
             {
@@ -58,27 +56,6 @@ namespace MineFinder
                     }
                 }
             }
-            /*
-            while (i < MineCount) // 지뢰 갯수 만큼
-            {
-                mine[i].X = rand.Next(0, row); // 열
-
-                for (int j = 0; j < i; j++)
-                {
-                    if (mine[j].X == mine[i].X) // 이전거와 같은게 있다면
-                    {
-                        isSolo = false; // 중복임
-                        break; // 브레이크
-                    }
-                }
-                if (isSolo) // 중복없다면
-                {
-                    mine[i].Y = rand.Next(0, col); // 행
-                    i++; // 다음 수
-                }
-                isSolo = true; // 초기화
-            }
-            */
         }
         public void SetObject()
         {
@@ -86,7 +63,7 @@ namespace MineFinder
             {
                 for(int j = 0; j < col; j++)
                 {
-                    switch(cal.CalculateNum(i, j))
+                    switch(cal.CalculateNum(i, j)) // 숫자면
                     {
                         case 0:
                             {
@@ -134,7 +111,7 @@ namespace MineFinder
                                 break;
                             }
                     }
-                    for (int k = 0; k < MineCount; k++)
+                    for (int k = 0; k < MineCount; k++) // 지뢰면
                     {
                         if (i == mine[k].X && j == mine[k].Y)
                         {
@@ -145,7 +122,7 @@ namespace MineFinder
                 }
             }
         }
-        public void RenderAll()
+        public void RenderAll() // 그리기
         {
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Black;
@@ -158,11 +135,11 @@ namespace MineFinder
             {
                 for (int j = 0; j < col; j++)
                 {
-                    if (tile[i, j].myShape == '◈')
+                    if (tile[i, j].myShape == '◈') // 지뢰면
                     {
-                        if(isCurrent(i, j) == false)
+                        if(isCurrent(i, j) == false) // 현재 선택중이면
                         {
-                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.BackgroundColor = ConsoleColor.Black; // 색깔
                             Console.ForegroundColor = ConsoleColor.White;
                         }
                         else
@@ -170,7 +147,7 @@ namespace MineFinder
                             Console.BackgroundColor = ConsoleColor.White;
                             Console.ForegroundColor = ConsoleColor.Black;
                         }
-                        if (tile[i, j].isOpen)
+                        if (tile[i, j].isOpen) // 타일이 열렸으면?
                         {
                             for(int k = 0; k < MineCount; k++)
                             {
@@ -179,7 +156,7 @@ namespace MineFinder
                                     mine[k].isOpen = true;
                                 }
                             }
-                            if(isCurrent(i, j) == false)
+                            if(isCurrent(i, j) == false) //현재 선택?
                             {
                                 Console.BackgroundColor = ConsoleColor.Black;
                                 Console.ForegroundColor = ConsoleColor.Red;
@@ -192,9 +169,9 @@ namespace MineFinder
                                 Console.Write(tile[i, j].myShape);
                             }
                         }
-                        else Console.Write(tile[i, j].hideShape);
+                        else Console.Write(tile[i, j].hideShape); // 안열리면 가리기
                     }
-                    else
+                    else // 지뢰가 아니면
                     {
                         if (isCurrent(i, j) == false)
                         {
@@ -216,7 +193,7 @@ namespace MineFinder
                 Console.WriteLine();
             }
         }
-        public void CheckMineCount()
+        public void CheckMineCount() // 현재 지뢰갯수
         {
             int count = 0;
             for(int i = 0; i < MineCount; i++)
@@ -228,7 +205,7 @@ namespace MineFinder
             }
             currentMineCount = count;
         }
-        public bool isCurrent(int i, int j)
+        public bool isCurrent(int i, int j) // 현재 좌표
         {
             if (i == Input.Instance.GetX() && j == Input.Instance.GetY()) return true;
             else return false;

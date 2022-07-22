@@ -9,15 +9,10 @@ namespace MineFinder
     
     public class GameLoop : Manager<GameLoop>
     {
-        private long currentTick;
-        private long lastTick = 0;
-        private int frameRate = 15;
-        private float waitTick = 0;
-
+        public bool isOver = false;
         public Creator creator = new Creator();
-        public void Awake()
+        public void Awake() // 시작
         {
-            waitTick = 1000 / frameRate;
             Setting.Instance.SetWindow();
             Input.Instance.KeyPosition();
         }
@@ -28,29 +23,13 @@ namespace MineFinder
             creator.cal.InitCal();
             creator.SetObject();
         }
-        public void Update()
+        public void Update() // 그리기
         {
-            while(true)
+            while(!isOver)
             {
-                creator.RenderAll();
-                Input.Instance.GetKey();
+                creator.RenderAll(); // 그리기
+                Input.Instance.GetKey(); // 입력
             }
-            /*
-            while(true)
-            {
-                currentTick = Environment.TickCount & Int32.MaxValue;
-                if(currentTick - lastTick < waitTick)
-                {
-                    continue;
-                }
-                else
-                {
-                    lastTick = currentTick;
-                    Input.Instance.GetKey();
-                    creator.RenderAll();
-                }
-            }
-            */
         }
     }
 }

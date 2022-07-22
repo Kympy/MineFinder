@@ -8,19 +8,19 @@ namespace MineFinder
 {
     public class Setting : Manager<Setting>
     {
-        private int Width = 40;
+        private int Width = 40; // 윈도우
         public int GetWidth() { return Width; }
 
         private int Height = 20;
         public int GetHeight() { return Height; }
 
-        private int Row = 20;
+        private int Row = 20; // 타일
         public int GetRow() { return Row; }
 
         private int Col = 20;
         public int GetCol() { return Col; }
 
-        public void SetWindow()
+        public void SetWindow() // 윈도우 세팅
         {
             Console.SetWindowSize(Width, Height + 3);
             Console.BufferWidth = Width;
