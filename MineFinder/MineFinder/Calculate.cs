@@ -84,7 +84,7 @@ namespace MineFinder
             }
             return count;
          }
-        public void OpenRange(int x, int y)
+        public void OpenRange(int x, int y) // 타일 선택 시 오픈되는 반경을 설정
         {
             if(!(x >= 0 && y >= 0 && x < row && y < col) || GameLoop.Instance.creator.tile[x, y].isOpen) // 범위를 벗어나면 & 이미 열린 타일이면
             {

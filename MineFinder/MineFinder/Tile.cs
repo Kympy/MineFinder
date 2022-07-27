@@ -14,9 +14,5 @@ namespace MineFinder
         public char myShape; // 내 모양
         public char hideShape = '■'; // 덮일 때 모양
         public bool isMine = false; // 지뢰인지?
-        public Tile()
-        {
-
-        }
     }
 }

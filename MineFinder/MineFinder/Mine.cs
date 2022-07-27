@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MineFinder
 {
-    public class Mine
+    public class Mine // 지뢰
     {
         public int X;
         public int Y;
-        public bool isOpen = false;
+        public bool isOpen = false; // 열렸는지?
 
         public Mine()
         {

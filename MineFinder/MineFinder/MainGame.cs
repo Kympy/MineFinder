@@ -15,7 +15,7 @@ namespace MineFinder
             GameLoop.Instance.Update();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("\tGame Over"); // 겜오버 업데이트 나오면
+            Console.WriteLine("\tGame Over"); // 겜오버 업데이트문 나오면
         }
     }
 }

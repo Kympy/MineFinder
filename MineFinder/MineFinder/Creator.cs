@@ -38,26 +38,26 @@ namespace MineFinder
         }
         public void CreateMine() // 지뢰 중복 X 생성
         {
-            for(int k = 0; k < MineCount; k++)
+            for(int k = 0; k < MineCount; k++) // 지뢰 갯수만큼 메모리 할당
             {
                 mine[k] = new Mine();
             }
             int q;
-            for(q = 0; q < MineCount; q++)
+            for(q = 0; q < MineCount; q++) // q는 지뢰 갯수 만큼 돈다.
             {
-                mine[q].X = rand.Next(0, row);
+                mine[q].X = rand.Next(0, row); // 랜덤한 위치 생성
                 mine[q].Y = rand.Next(0, col);
-                for(int p = 0; p < q; p++)
+                for(int p = 0; p < q; p++) // p 는 지금까지 생성한 지뢰갯수 만큼 돈다.
                 {
-                    if (mine[p].X == mine[q].X && mine[p].Y == mine[q].Y)
-                    {
+                    if (mine[p].X == mine[q].X && mine[p].Y == mine[q].Y) // 만약 이전까지 지뢰좌표와
+                    {                                                                                // 현재 지뢰좌표가 겹치면 다시 생성한다.
                         q--;
                         break;
                     }
                 }
             }
         }
-        public void SetObject()
+        public void SetObject() // 지뢰, 숫자 표시
         {
             for(int i = 0; i < row; i++)
             {
